@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Soạn câu hỏi đáp";
+    Layout = "~/Views/Shared/_LayoutPageNew.cshtml";
+}
+@model QLBANDTDD.Models.CauHoi
+@using (Html.BeginForm())
+{
+    var d = DateTime.Now.ToString();
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" });
+    <main id="contact-us" class="inner-bottom-md">
+        <div class="container">
+            <div class="row">
+                <div >
+                    <a href="@Url.Action("CauHoi","HoiDap")" class="le-button">Danh Sách Câu Hỏi</a>
+                </div>
+                <div class="col-md-10">
+                    <section class="section leave-a-message">
+                        <h2 class="bordered">Gửi câu hỏi thắc mắc</h2>
+                        
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <label>Họ Tên :</label>
+                                            @Html.EditorFor(model => model.TenNguoiHoi, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.TenNguoiHoi, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <label>Số Điện Thoại :</label>
+                                        @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                                    </div>
+                                    </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <label>Tiêu Đề :</label>
+                                        @Html.EditorFor(model => model.TieuDe, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TieuDe, "", new { @class = "text-danger"})
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <label>Nội Dung :</label>
+                                        @Html.TextAreaFor(m => m.NoiDung, new { @class = "form-control",@rows="8" }) 
+                                        @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="gui">
+                                        <button type="submit" class="le-button huge">Gửi câu hỏi </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section><!-- /.leave-a-message -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </main>
+   }

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Xóa Câu Hỏi";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model QLBANDTDD.Models.CauHoi
+<section class="wrapper site-min-height">
+    <div class="row">
+        <h2>@ViewBag.Title</h2>
+        <br />
+        <h3>Bạn chắc chắn muốn xóa câu hỏi này cùng với câu trả lời của nó ?</h3>
+        @using (Html.BeginForm())
+        {
+
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-1">
+                    <button type="submit" class="btn btn-info">Xóa </button>
+                    <button type="button" onclick="window.location = '/hoi-dap'" class="btn btn-default">Hủy</button>
+                </div>
+            </div>
+        }
+        </div>
+    </section>

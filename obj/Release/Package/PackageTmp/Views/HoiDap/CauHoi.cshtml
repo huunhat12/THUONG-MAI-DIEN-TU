@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Câu hỏi đáp";
+    Layout = "~/Views/Shared/_LayoutPageNew.cshtml";
+}
+
+@model IEnumerable<QLBANDTDD.ViewModel.HoiDapViewModel>
+<main id="faq" class="inner-bottom-md">
+    <div class="container">
+
+        <section class="section">
+            <div class="page-header">
+                <h2 class="page-title">Danh Sách Câu Hỏi</h2>
+                <div class="cauhoi"><a href="@Url.Action("Soancauhoi","HoiDap")" class="le-button">Soạn câu hỏi</a></div>
+            </div>
+            <div id="questions" class="panel-group panel-group-faq">
+                @foreach (var item in Model)
+            {
+                    <div class="panel panel-faq">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                    @item.TenNguoiHoi :  "@item.TieuDeCH"
+                            </h4>
+                           @* <div class="xem"><button class="btn btn-info">Xem câu trả lời</button></div>*@
+                            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"><button class="btn btn-info">Xem câu trả lời</button></i></span>
+                            @*<div>@item.NoiDungCH</div>
+                            <div>@item.NgayHoi</div>*@
+                        </div>
+                        @*<div class="collapse">*@
+                            <div class="panel-body">
+                                @Html.Raw(item.NoiDungTL)
+                            </div>
+                        @*</div>*@
+                    </div><!-- /.panel-faq -->
+                }
+
+            </div><!-- /.panel-group -->
+        </section><!-- /.section -->
+    </div><!-- /.container -->
+</main>
+<script type="text/javascript">
+    $(document).on('click', '.panel-heading span.clickable', function (e) {
+        var $this = $(this);
+        if (!$this.hasClass('panel-collapsed')) {
+            $this.parents('.panel').find('.panel-body').slideUp();
+            $this.addClass('panel-collapsed');
+            $this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+        } else {
+            $this.parents('.panel').find('.panel-body').slideDown();
+            $this.removeClass('panel-collapsed');
+            $this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+        }
+    })
+</script>
+

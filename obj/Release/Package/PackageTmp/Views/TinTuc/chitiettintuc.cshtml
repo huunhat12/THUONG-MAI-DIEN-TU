@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Chi tiết tin tức";
+    Layout = "~/Views/Shared/_LayoutPageNew.cshtml";
+    var layout = new QLBANDTDD.ViewModel.LayoutMenu(Url);
+}
+@model QLBANDTDD.ViewModel.TinTucCT
+<section id="blog-single">
+    <div class="container">
+        <!-- ========================================= CONTENT ========================================= -->
+        <div class="posts col-md-9">
+            <div class="post-entry">
+
+                <div class="post-content">
+                    <h2 class="post-title">@Model.tintuc.TieuDe</h2>
+                    <ul class="meta">
+                        <li>Thể loại : <a href="@Model.tintuc.NhomTinTuc.GetUrl()">@Model.tintuc.NhomTinTuc.TieuDe</a></li>
+                        <li>@Model.tintuc.NgayDang</li>
+                    </ul><!-- /.meta -->
+                    <p>@Html.Raw(Model.tintuc.NoiDung)</p>
+                </div><!-- /.post-content -->
+            </div><!-- /.post-entry -->
+            <div class="meta-row">
+                <div class="inline">
+                    <label>tag:</label>
+                    @{
+                        var tintuc = layout.GetMenuTinTuc();
+                    }
+                    @foreach (var item in tintuc)
+                    {
+                        <span><a href="@item.GetUrl()">@item.TieuDe</a>,</span>
+                    }
+                </div>
+            </div><!-- /.meta-row -->
+
+            <section id="comments" class="inner-bottom-xs">
+                <h3>Bình luận</h3>
+                <div class="fb-comments" data-href="@Request.Url.ToString()" data-numposts="10" data-colorscheme="light"></div>
+            </section>
+        </div><!-- /.posts -->
+    </div>
+</section>
+<div id="fb-root"></div>
+<script>
+                    (function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=394761907536072";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+</script>

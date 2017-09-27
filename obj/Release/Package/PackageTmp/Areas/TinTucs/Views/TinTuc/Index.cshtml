@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Danh Sách Tin Tức";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model PagedList.IPagedList<QLBANDTDD.Areas.TinTucs.Models.TinTucModel>
+@using PagedList.Mvc
+<div id="table">
+<h2>@ViewBag.Title</h2>
+<div class="btn-group">
+    <a href="@Url.Action("ThemTinTuc","TinTuc",new {area="TinTucs" })" id="editable-sample_new" class="btn btn-success">
+            Thêm Mới
+            <i class="fa fa-plus"></i>
+    </a>
+</div>
+    <div class="alert alert-info" id="alert-info" style="display:none"></div>
+<p></p>
+<table class="table table-bordered" style="text-align:center">
+    <tr>
+        <th style="text-align:center">
+            Tiêu Đề
+        </th>
+        <th style="text-align:center">
+            Nội Dung TT
+        </th>
+        <th style="text-align:center">
+            Ngày Đăng
+        </th>
+        <th style="text-align:center">
+            Hình Ảnh
+        </th>
+        <th style="text-align:center">
+            Nhóm Tin
+        </th>
+        <th style="text-align:center">
+            Hiển Thị
+        </th>
+        <th style="text-align:center">
+            Thao tác
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="info">
+            <td>
+                @Html.DisplayFor(modelItem => item.TieuDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiDungTT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDang)
+            </td>
+            <td>
+                <div class="lock-wrapper"><img src="@item.HinhAnh" /></div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNhom)
+            </td>
+            <td>
+                @if (item.HienThi == true)
+                {
+                    <div class="label label-primary label-mini">Có</div>
+                }
+                else
+                {
+                    <div class="label label-warning label-mini">Không</div>
+                }
+            </td>
+            <td>
+                <a href="@Url.Action("SuaTinTuc","TinTuc",new {area="TinTucs",id=item.Id })"  class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                <a href='javascript:XoaItem("@Url.Action("XoaTinTuc", "TinTuc")","@item.Id")' class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+            </td>
+        </tr>
+    }
+
+</table>
+</div>

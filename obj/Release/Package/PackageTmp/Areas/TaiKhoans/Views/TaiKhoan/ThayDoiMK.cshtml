@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Thay đổi mật khẩu";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+    int matk = Int32.Parse(Session["MaTK"].ToString());
+}
+@model QLBANDTDD.Areas.TaiKhoans.Models.TaikhoanChanged
+<div>
+    <a href="@Url.Action("Index","TaiKhoan")" class="le-button">Danh Sách Tài Khoản</a>
+</div>
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" });
+    <form>
+        <div class="form-horizontal">
+            @Html.HiddenFor(model =>matk)
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Mật Khẩu Cũ :</label>
+                    @Html.PasswordFor(model => model.MatKhau,new { @class = "form-control" } )
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Mật Khẩu Mới :</label>
+                    @Html.PasswordFor(model => model.MatKhauMoi,new { @class = "form-control" } )
+                    @Html.ValidationMessageFor(model => model.MatKhauMoi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Nhập Lại Mật Khẩu :</label>
+                    @Html.PasswordFor(model => model.NhapLaiMatKhau,new { @class = "form-control" } )
+                    @Html.ValidationMessageFor(model => model.NhapLaiMatKhau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-3 col-lg-9">
+                    <button type="submit" class="btn btn-info"><i class="fa fa-floppy-o"> Lưu</i> </button>
+                    <button type="button" onclick="window.location = '/tai-khoan'" class="btn btn-default"><i class="fa fa-hand-o-left "> Hủy</i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+}

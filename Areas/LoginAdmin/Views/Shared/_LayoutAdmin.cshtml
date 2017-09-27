@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Templates_Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Templates_Admin/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/Templates_Admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Templates_Admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/Templates_Admin/css/owl.carousel.css" type="text/css">
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+    <!-- Custom styles for this template -->
+    <link href="~/Templates_Admin/css/style.css" rel="stylesheet">
+    <link href="~/Templates_Admin/css/style-responsive.css" rel="stylesheet" />
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+    <script src="~/Scripts/Themsuaxoaajax.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body onload="startTime()">
+
+    <section id="container">
+        <!--header start-->
+        <header class="header white-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="@Url.Action("Index","Home",new {area="HomeAdmin"})" class="logo">Media<span>Center</span></a>
+            <!--logo end-->
+            <div class="top-nav ">
+                <!--search & user info start-->
+                <ul class="nav pull-right top-menu">
+                    <li>
+                        <input type="text" class="form-control search" placeholder="Search">
+                    </li>
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="~/Templates_Admin/img/avatar1_small.jpg">
+                            <span class="username">@Session["UserName"]</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li><a href="@Url.Action("Login","Login",new {area="LoginAdmin"})"><i class="fa fa-key"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <li>
+                        <a class="active" href="@Url.Action("Index","Home",new {area="HomeAdmin"})">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Trang Chủ</span>
+                        </a>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-laptop"></i>
+                            <span>Quản lý Banner</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="@Url.Action("Index","BannerGroup",new {area="Banners"})">Danh sách nhóm banner</a></li>
+                            <li><a href="@Url.Action("Index","Banner",new {area="Banners"})">Danh sách banner</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-th"></i>
+                            <span>Quản lý sản phẩm</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="@Url.Action("Index","HangSanXuat",new { area = "HangSanXuats" })">Danh sách hãng sản xuất</a></li>
+                            <li><a href="@Url.Action("Index","LoaiSanPham",new { area = "LoaiSanPhams"})">Danh sách loại sản phẩm</a></li>
+                            <li><a href="@Url.Action("Index","SanPham",new { area = "SanPhams"})">Danh sách sản phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-envelope"></i>
+                            <span>Quản lý hỏi đáp</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="@Url.Action("Index","HoiDap",new {area="HoiDap"})">Danh sách hỏi đáp</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Quản lý đơn hàng</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="@Url.Action("Index","DonHang",new {area="DonHangs"})">Danh sách đơn hàng</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-comments-o"></i>
+                            <span>Quản lý bài viết</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="@Url.Action("Index","NhomTinTuc",new {area="TinTucs"})">Danh sách nhóm tin tức</a></li>
+                            <li><a href="@Url.Action("Index","TinTuc",new {area="TinTucs"})">Danh sách tin tức</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-user"></i>
+                            <span>Quản lý tài khoản</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="@Url.Action("ThayDoiMK","TaiKhoan",new {area="TaiKhoans" })">Thay đổi mật khẩu</a></li>
+                            <li><a href="@Url.Action("Index","TaiKhoan",new {area="TaiKhoans" })">Danh sách tài khoản</a></li>
+                            @if (Session["Quyen"].Equals("True"))
+                            {
+                            <li><a href="@Url.Action("ThemTaiKhoan", "TaiKhoan", new { area = "TaiKhoans" })">Tạo tài khoản</a></li>
+                            }
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://localhost:51363/">
+                            <i class="fa fa-arrow-left"></i>
+                            <span>Về trang chủ MediaCenter</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+              @RenderBody()
+            </section>
+        </section>
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                2016 &copy; Danh Mai Coppyright.
+                <a href="#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/Templates_Admin/js/jquery.js"></script>
+    <script src="~/Templates_Admin/js/jquery-1.8.3.min.js"></script>
+    <script src="~/Templates_Admin/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="~/Templates_Admin/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="~/Templates_Admin/js/jquery.scrollTo.min.js"></script>
+    <script src="~/Templates_Admin/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="~/Templates_Admin/js/jquery.sparkline.js" type="text/javascript"></script>
+    <script src="~/Templates_Admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+    <script src="~/Templates_Admin/js/owl.carousel.js"></script>
+    <script src="~/Templates_Admin/js/jquery.customSelect.min.js"></script>
+    <script src="~/Templates_Admin/js/respond.min.js"></script>
+
+    <!--common script for all pages-->
+    <script src="~/Templates_Admin/js/common-scripts.js"></script>
+
+    <!--script for this page-->
+    <script src="~/Templates_Admin/js/sparkline-chart.js"></script>
+    <script src="~/Templates_Admin/js/easy-pie-chart.js"></script>
+    <script src="~/Templates_Admin/js/count.js"></script>
+
+    <script>
+
+      //owl carousel
+
+      $(document).ready(function() {
+          $("#owl-demo").owlCarousel({
+              navigation : true,
+              slideSpeed : 300,
+              paginationSpeed : 400,
+              singleItem : true,
+			  autoPlay:true
+
+          });
+      });
+
+      //custom select box
+
+      $(function(){
+          $('select.styled').customSelect();
+      });
+
+    </script>
+
+</body>
+</html>

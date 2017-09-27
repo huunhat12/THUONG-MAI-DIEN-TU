@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Danh Sách Nhóm Tin Tức";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model PagedList.IPagedList<QLBANDTDD.Areas.TinTucs.Models.NhomTinModel>
+@using PagedList.Mvc
+<div id="table">
+    <h2>@ViewBag.Title</h2>
+    <div class="btn-group">
+        <a href="@Url.Action("ThemNhomTinTuc","NhomTinTuc",new {area="TinTucs" })" id="editable-sample_new" class="btn btn-success">
+            Thêm Mới
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+    <div class="alert alert-info" id="alert-info" style="display:none"></div>
+    <p></p>
+    <table class="table table-bordered" style="text-align:center">
+        <tr>
+            <th style="text-align:center">
+                Tiêu Đề
+            </th>
+            <th style="text-align:center">
+                Từ Khóa
+            </th>
+            <th style="text-align:center">
+                Hiển Thị
+            </th>
+            <th style="text-align:center">
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+    {
+    <tr class="info">
+        <td>
+            @Html.DisplayFor(modelItem => item.TieuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TuKhoa)
+        </td>
+        <td>
+            @if (item.HienThi == true)
+                {
+                <div class="label label-primary label-mini">Có</div>
+                }
+                else
+                {
+                <div class="label label-warning label-mini">Không</div>
+                }
+        </td>
+        <td>
+            <a href="@Url.Action("SuaNhomTinTuc","NhomTinTuc",new {area="TinTucs",id=item.Id })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+            <a href='javascript:XoaItem("@Url.Action("XoaNhomTinTuc", "NhomTinTuc")","@item.Id")' class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+        </td>
+    </tr>
+    }
+    </table>
+    <div class="pagination-holder">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 text-left">
+                <div id="nav_grid">
+                    @Html.PagedListPager(Model, page => @Url.Action("Index", "NhomTinTuc", new { area = "TinTucs", page }))
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="result-counter">
+                    Có tất cả <span>@Model.TotalItemCount</span> nhóm tin tức
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div>

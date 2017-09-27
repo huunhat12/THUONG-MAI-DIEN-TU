@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Danh Sách Banner";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model PagedList.IPagedList<QLBANDTDD.Areas.Banners.Models.BannerModel>
+@using PagedList.Mvc
+ <div id="table">
+    <h2>@ViewBag.Title</h2>
+    <div class="btn-group">
+        <a href="@Url.Action("ThemBanner","Banner",new {area="Banners" })" id="editable-sample_new" class="btn btn-success">
+            Thêm Mới
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+     <div class="alert alert-info" id="alert-info" style="display:none"></div>
+    <p></p>
+    <table class="table table-bordered" style="text-align:center">
+        <tr>
+            <th style="text-align:center">
+                Tiêu Đề
+            </th>
+            <th style="text-align:center">
+                Thứ Tự
+            </th>
+            <th style="text-align:center">
+                Link
+            </th>
+            <th style="text-align:center">
+                Hình Ảnh
+            </th>
+            <th style="text-align:center">
+                Nhóm Banner
+            </th>
+            <th style="text-align:center">
+                Hiển Thị
+            </th>
+            <th style="text-align:center">
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="info">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TieuDe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThuTu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Link)
+                </td>
+                <td>
+                    <div class="lock-wrapper"><img src="@item.HinhAnh" /></div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NhomBanner)
+                </td>
+                <td>
+                    @if (item.HienThi == true)
+                {
+                        <div class="label label-primary label-mini">Có</div>
+                    }
+                    else
+                    {
+                        <div class="label label-warning label-mini">Không</div>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("SuaBanner","Banner",new {area="Banners",id=item.BannerId })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                    <a href='javascript:XoaItem("@Url.Action("XoaBanner", "Banner")","@item.BannerId")' class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+     <div class="pagination-holder">
+         <div class="row">
+             <div class="col-xs-12 col-sm-6 text-left">
+                 <div id="nav_grid">
+                     @Html.PagedListPager(Model, page => @Url.Action("Index", "Banner", new { area = "Banners", page }))
+                 </div>
+             </div>
+             <div class="col-xs-12 col-sm-6">
+                 <div class="result-counter">
+                     Có tât cả <span>@Model.TotalItemCount</span> banner
+                 </div>
+             </div>
+         </div><!-- /.row -->
+     </div>
+</div>

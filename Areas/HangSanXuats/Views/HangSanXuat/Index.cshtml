@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Danh Sách Hãng Sản Xuất";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model PagedList.IPagedList<QLBANDTDD.Areas.HangSanXuats.Models.HangSXModel>
+@using PagedList.Mvc
+<div id="table">
+    <h2>@ViewBag.Title</h2>
+    <div class="btn-group">
+        <a href="@Url.Action("ThemHangSX","HangSanXuat",new {area="HangSanXuats" })" id="editable-sample_new" class="btn btn-success">
+            Thêm Mới
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+    <div class="alert alert-info" id="alert-info" style="display:none"></div>
+    <p></p>
+    <table class="table table-bordered" style="text-align:center">
+        <tr>
+            <th style="text-align:center">
+                Tên Hãng Sản Xuất
+            </th>
+            <th style="text-align:center">
+                Trụ Sở Chính
+            </th>
+            <th style="text-align:center">
+                Quốc Gia
+            </th>
+            <th style="text-align:center">
+                Từ Khóa
+            </th>
+            <th style="text-align:center">
+                Hiển Thị
+            </th>
+            <th style="text-align:center">
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="info">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TruSoChinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuocGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TuKhoa)
+                </td>
+                <td>
+                    @if (item.HienThi == true)
+                {
+                        <div class="label label-primary label-mini">Có</div>
+                    }
+                    else
+                    {
+                        <div class="label label-warning label-mini">Không</div>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("SuaHangSX","HangSanXuat",new {area="HangSanXuats",id=item.Id })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                    <a href='javascript:XoaItem("@Url.Action("XoaHangSX", "HangSanXuat")","@item.Id")' class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="pagination-holder">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 text-left">
+                <div id="nav_grid">
+                    @Html.PagedListPager(Model, page => @Url.Action("Index", "HangSanXuat", new { area = "HangSanXuats", page }))
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="result-counter">
+                    Có tât cả <span>@Model.TotalItemCount</span> hãng sản xuất
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div>

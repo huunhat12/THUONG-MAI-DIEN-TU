@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Danh Sách Sản Phẩm";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model PagedList.IPagedList<QLBANDTDD.Areas.SanPhams.Models.SanPhamModel>
+@using PagedList.Mvc
+<div id="table">
+    <h2>@ViewBag.Title</h2>
+    <div class="btn-group">
+        <a href="@Url.Action("ThemSanPham","SanPham",new {area="SanPhams" })" id="editable-sample_new" class="btn btn-success">
+            Thêm Mới
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+    <div class="alert alert-info" id="alert-info" style="display:none"></div>
+    <p></p>
+    <table class="table table-bordered" style="text-align:center">
+        <tr>
+            <th style="text-align:center">
+                Tên Sản Phẩm
+            </th>
+            <th style="text-align:center">
+                Hãng Sản Xuất
+            </th>
+            <th style="text-align:center">
+                Loại Sản Phẩm
+            </th>
+            <th style="text-align:center">
+                Hình Ảnh
+            </th>
+            <th style="text-align:center">
+                Giá Tiền
+            </th>
+            <th style="text-align:center">
+                Hiển Thị
+            </th>
+            <th style="text-align:center">
+                Sản Phẩm Mới
+            </th>
+            <th style="text-align:center">
+                Sản Phẩm Hot
+            </th>
+            <th style="text-align:center">
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+    {
+        string giatien = string.Format("{0:0,0}", item.GiaTien)+" VNĐ";
+    <tr class="info">
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HangSXuat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiSPham)
+        </td>
+        <td>
+            <div class="lock-wrapper"><img src="@item.HinhAnh" /></div>
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem =>giatien)
+        </td>
+        <td>
+            @if (item.HienThi == true)
+                {
+                <div class="label label-primary label-mini">Có</div>
+                }
+                else
+                {
+                <div class="label label-warning label-mini">Không</div>
+                }
+        </td>
+        <td>
+            @if (item.IsNew == true)
+                {
+                <div class="label label-primary label-mini">Có</div>
+                }
+                else
+                {
+                <div class="label label-warning label-mini">Không</div>
+                }
+        </td>
+        <td>
+            @if (item.IsHot == true)
+                {
+                <div class="label label-primary label-mini">Có</div>
+                }
+                else
+                {
+                <div class="label label-warning label-mini">Không</div>
+                }
+        </td>
+        <td>
+            <a href="@Url.Action("SuaSanPham","SanPham",new {area="SanPhams",id=item.MaSP })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+            <a href='javascript:XoaItem("@Url.Action("XoaSanPham", "SanPham")","@item.MaSP")' class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+        </td>
+    </tr>
+    }
+
+    </table>
+    <div class="pagination-holder">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 text-left">
+                <div id="nav_grid">
+                    @Html.PagedListPager(Model, page => @Url.Action("Index", "SanPham", new { area = "SanPhams", page }))
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="result-counter">
+                    Có tât cả <span>@Model.TotalItemCount</span> sản phẩm
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div>

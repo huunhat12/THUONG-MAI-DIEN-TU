@@ -1,0 +1,174 @@
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\ApplicationInsights.config
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\csc.exe
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\System.Collections.Immutable.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\System.Reflection.Metadata.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\vbc.exe
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\VBCSCompiler.exe
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\roslyn\VBCSCompiler.exe.config
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\QLBANDTDD.dll.config
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\QLBANDTDD.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\QLBANDTDD.pdb
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Antlr3.Runtime.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\EntityFramework.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\EntityFramework.SqlServer.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.DependencyCollector.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.Web.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.WindowsServer.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.ApplicationInsights.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Google.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Web.Infrastructure.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Newtonsoft.Json.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Owin.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.Helpers.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.Mvc.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.Optimization.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.Razor.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.Deployment.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.Razor.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\WebGrease.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.DependencyCollector.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.Web.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.WindowsServer.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.ApplicationInsights.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.Helpers.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.Mvc.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.Optimization.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.Razor.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.Deployment.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.Razor.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Antlr3.Runtime.pdb
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Newtonsoft.Json.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\EntityFramework.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\EntityFramework.SqlServer.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Google.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\obj\Debug\QLBANDTDD.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\obj\Debug\QLBANDTDD.pdb
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\PagedList.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\PagedList.Mvc.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\PagedList.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\PagedList.Mvc.xml
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\CKFinder.dll
+D:\Lap Trinh Web\QLBANDTDD\QLBANDTDD\bin\CKFinder.pdb
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\ApplicationInsights.config
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\csc.exe
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\vbc.exe
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\VBCSCompiler.exe
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\QLBANDTDD.dll.config
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\QLBANDTDD.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\QLBANDTDD.pdb
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Antlr3.Runtime.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\CKFinder.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\EntityFramework.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\EntityFramework.SqlServer.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.Web.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Newtonsoft.Json.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Owin.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\PagedList.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\PagedList.Mvc.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.Helpers.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.Mvc.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.Optimization.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.Razor.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.Razor.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\WebGrease.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\CKFinder.pdb
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.Web.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\PagedList.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\PagedList.Mvc.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.Helpers.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.Mvc.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.Optimization.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.Razor.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\System.Web.WebPages.Razor.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Antlr3.Runtime.pdb
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Newtonsoft.Json.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\EntityFramework.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\EntityFramework.SqlServer.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\obj\Debug\QLBANDTDD.dll
+C:\Users\Huunhat\Desktop\QLBANDTDD\QLBANDTDD\QLBANDTDD\obj\Debug\QLBANDTDD.pdb

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8801febb93f74127bbcbfa5e5e15ef19" Name="Diagram1">
+        <EntityTypeShape EntityType="QLBANDTDDModel.Banner" Width="1.5" PointX="8" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.BannerGroup" Width="1.5" PointX="5.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.CauHoi" Width="1.5" PointX="7.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.ChiTietDonHang" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.DonHang" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.HangSanXuat" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.LoaiSanPham" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.NhomTinTuc" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.SanPham" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.TaiKhoan" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.TinTuc" Width="1.5" PointX="10" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.ThongSoKiThuat" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBANDTDDModel.TraLoi" Width="1.5" PointX="10" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="QLBANDTDDModel.FK_Banner_BannerGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBANDTDDModel.FK_TraLoi_CauHoi" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBANDTDDModel.FK_ChiTietDonHang_DonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBANDTDDModel.FK_ChiTietDonHang_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBANDTDDModel.FK_SanPham_HangSanXuat" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBANDTDDModel.FK_SanPham_LoaiSanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBANDTDDModel.FK_TinTuc_NhomTinTuc" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBANDTDDModel.FK_ThongSoKiThuat_SanPham" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

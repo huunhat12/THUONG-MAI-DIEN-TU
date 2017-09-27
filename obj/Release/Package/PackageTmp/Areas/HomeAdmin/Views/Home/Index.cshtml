@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Trang Quản Trị  Bán Điện Thoại";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<section class="wrapper site-min-height" >
+    <div class="row">
+    <h2 style="color: #337ab7">Bạn đang ở trang quản trị của quản lý bán điện thoại</h2>
+    <div>
+        <h3 style="color: #337ab7">Chào mừng bạn @Session["UserName"] đến với trang quản trị</h3>
+        <h3 style="color: #337ab7">Ngày hiện tại: @string.Format("{0:d/M/yyyy}", DateTime.Now) <span id="time"></span></h3>
+        </div>
+</section>
+<script>
+        function startTime()
+        {
+            var today=new Date();
+            var h=today.getHours();
+            var m=today.getMinutes();
+            var s=today.getSeconds();
+            // add a zero in front of numbers<10
+            m=checkTime(m);
+            s=checkTime(s);
+            document.getElementById('time').innerHTML=h+":"+m+":"+s;
+            t=setTimeout(function(){startTime()},500);
+        }
+
+        function checkTime(i)
+        {
+            if (i<10)
+            {
+                i="0" + i;
+            }
+            return i;
+        }
+</script>

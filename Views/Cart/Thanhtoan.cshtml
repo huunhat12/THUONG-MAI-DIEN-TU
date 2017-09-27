@@ -1,0 +1,135 @@
+﻿@model QLBANDTDD.ViewModel.DonHangModel
+@{
+    ViewBag.Title = "Đặt hàng";
+    Layout = "~/Views/Shared/_LayoutPageNew.cshtml";
+    var Total = Session["Total"];
+    var Quantity = Session["Quantity"];
+}
+@using QLBANDTDD.ViewModel
+
+@if (Session["CartSession"] != null)
+{
+    var _CartSession = (List<CartItem>)Session["CartSession"];
+    <section id="cart-page">
+            <div class="container">
+                <!-- ========================================= CONTENT ========================================= -->
+                <div class="col-xs-12 col-md-9 items-holder no-margin">
+                    @foreach (var item in _CartSession)
+                    {
+                        <div class="row no-margin cart-item">
+                            <div class="col-xs-12 col-sm-1 no-margin">
+                                <a href="@item.sanpham.GetUrl()" class="thumb-holder">
+                                    <img class="lazy" alt="" src="@item.sanpham.HinhAnh" />
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-5 ">
+                                <div class="title">
+                                    <a href="@item.sanpham.GetUrl()">@item.sanpham.TenSP</a>
+                                </div>
+                                <div class="brand">@item.sanpham.HangSanXuat.TenHang</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-2 no-margin">
+                                <div class="quantity">
+                                    <div class="le-quantity">
+                                        <form>
+                                            <input @*@*name="quantity1"*@ id="quantity" class="Quantity" readonly="readonly" type="text" value="@item.Quantity" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 no-margin">
+                                <div class="price" style="padding-right:15px;">
+                                    @string.Format("{0:0,0}", @item.Quantity * @item.sanpham.GiaTien) VNĐ
+                                </div>
+                            </div>
+                        </div><!-- /.cart-item -->
+                    }
+                </div>
+                <!-- ========================================= CONTENT : END ========================================= -->
+                <!-- ========================================= SIDEBAR ========================================= -->
+                <div class="col-xs-12 col-md-3 no-margin sidebar ">
+                    <div class="widget cart-summary">
+                        <h1 class="border">Giỏ hàng</h1>
+                        <div class="body">
+                            <ul class="tabled-data no-border inverse-bold">
+                                <li>
+                                    <div>Tổng tiền sản phẩm :</div>
+                                    <br />
+                                    <div class="value pull">@string.Format("{0:0,0}", Total) VNĐ</div>
+                                </li>
+                                <li>
+                                    <label>Tổng số lượng :</label>
+                                    <div class="value pull">@Quantity</div>
+                                </li>
+                                <li>
+                                    <label>Phí vận chuyển :</label>
+                                    <div class="value pull">Miễn phí</div>
+                                </li>
+                            </ul>
+                            <ul id="total-price" class="tabled-data inverse-bold no-border">
+                                <li>
+                                    <label>Tổng tiền :</label>
+                                    <div class="value pull-right">@string.Format("{0:0,0}", Total) VNĐ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- /.widget -->
+                </div><!-- /.sidebar -->
+                <!-- ========================================= SIDEBAR : END ========================================= -->
+            </div>
+</section>
+            }
+<h1></h1>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" });
+    <main id="contact-us" class="inner-bottom-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <section class="section leave-a-message">
+                        <h2 class="bordered">Thông tin khách hàng</h2>
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label>Họ Tên :</label>
+                                    @Html.EditorFor(model => model.TenKH, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label>Số Điện Thoại :</label>
+                                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                                </div> 
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label>Email : </label>
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label>Địa Chỉ : </label>
+                                    @Html.EditorFor(m => m.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                    <button type="submit" class="le-button huge">Đặt hàng </button>
+                            </div>
+                        </div>
+                    </section><!-- /.leave-a-message -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </main>
+}
+
+

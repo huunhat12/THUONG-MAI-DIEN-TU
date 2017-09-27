@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Thông Số Kĩ Thuật Của Sản Phẩm";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model List<QLBANDTDD.Models.ThongSoKiThuat>
+<h2>@ViewBag.Title</h2>
+<div class="box-content">
+    <input id="CountFeld" name="CountFeld" type="hidden" value="@Model.Count">
+    @using (Html.BeginForm("ThemThongSoKT", "SanPham", FormMethod.Post, new { id = "ThemThongSoKT" }))
+    {
+        <div class="form-horizontal">
+            <div class="alert alert-info">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model[0].TenTSKT, "Tên Thông Số Kĩ Thuật", new { @class = "center-text col-md-2" })
+                @Html.LabelFor(model => model[0].GiaTri, "Giá Trị", new { @class = "center-text col-md-4" })
+            </div>
+            <div id="thongsoktgrp">
+                @for (int i = 0; i < Model.Count; ++i)
+                {
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            @Html.Hidden("lstkt[" + i + "].MaSP", Model[i].MaSP)
+                            @Html.TextBox("lstkt[" + i + "].TenTSKT", String.Empty, new { @class = "form-control" })
+                            @Html.ValidationMessage("lstkt[" + i + "].TenTSKT")
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBox("lstkt[" + i + "].GiaTri", String.Empty, new { @class = "form-control" })
+                            @Html.ValidationMessage("lstkt[" + i + "].GiaTri")
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a class="btn btn-info" href='javascript:ThemTSKTMoi("@Model[0].MaSP")'>
+                        <i class="glyphicon glyphicon-plus icon-white"></i>
+                        Thêm thuộc tính mới
+                    </a>
+                    <a class="btn btn-danger" href='javascript:XoaTSKT()'>
+                        <i class="glyphicon glyphicon-minus icon-white"></i>
+                        Xóa thuộc tính vừa thêm
+                    </a>
+                    <a class="btn btn-success" href='javascript:submitform("ThemThongSoKT")'>
+                        <i class="glyphicon glyphicon-book icon-white"></i>
+                        Lưu lại
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

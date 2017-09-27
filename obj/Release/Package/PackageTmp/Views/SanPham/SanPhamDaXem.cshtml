@@ -1,0 +1,51 @@
+﻿@model QLBANDTDD.ViewModel.SanPhamCT
+       @foreach (var item in Model.spdx)
+       {
+           Double? s = ((double)item.GiaTien / item.GiaGoc) * 100;
+           var q = (Double)s;
+            <div class="no-margin carousel-item product-item-holder size-small hover">
+                <div class="product-item">
+                    @if (item.IsNew == true)
+                    {
+                        <div class="ribbon blue"><span>New</span></div>
+                    }
+                    @if (item.IsHot == true)
+                    {
+                        <div class="ribbon red"><span>Hot</span></div>
+                    }
+                    @if (item.GiaGoc > item.GiaTien)
+                    {
+                        <div class="ribbon green"><span>sale</span></div>
+                    }
+                    <div class="image">
+                        <img alt="@item.GetUrl()" src="~/assets/images/blank.gif" data-echo="@item.HinhAnh" />
+                    </div>
+                    <div class="body">
+                        @if (item.GiaGoc > item.GiaTien)
+                        {
+                            <div class="label-discount green">-@(100 - Math.Round(q, 0))% sale</div>
+                        }
+                        <div class="title">
+                            <a href="@item.GetUrl()">@item.TenSP</a>
+                        </div>
+                        <div class="brand">@item.HangSanXuat.TenHang</div>
+                    </div>
+                    <div class="prices">
+                        @if (@item.GiaGoc == @item.GiaTien)
+                        {
+                            <div class="price-current pull-right">@string.Format("{0:0,0}", item.GiaTien)  VNĐ</div>
+                        }
+                        else
+                        {
+                            <div class="price-prev">@string.Format("{0:0,0}", item.GiaGoc)  VNĐ</div>
+                            <div class="price-current pull-right">@string.Format("{0:0,0}", item.GiaTien)  VNĐ</div>
+                        }
+                    </div>
+                    <div class="hover-area">
+                        <div class="add-cart-button">
+                            <a href="javascript:;" class="le-button" onclick="AddCart(@item.MaSP,1)">Cho vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div><!-- /.product-item -->
+            </div>
+       }

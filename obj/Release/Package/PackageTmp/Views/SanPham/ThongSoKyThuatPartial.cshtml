@@ -1,0 +1,10 @@
+﻿@model IEnumerable<QLBANDTDD.Models.ThongSoKiThuat>
+<ul class="tabled-data">
+    @foreach (var item in Model)
+    {
+        <li>
+            <label>@item.TenTSKT</label>
+            <div class="value">@item.GiaTri</div>
+        </li>
+    }
+</ul><!-- /.tabled-data -->

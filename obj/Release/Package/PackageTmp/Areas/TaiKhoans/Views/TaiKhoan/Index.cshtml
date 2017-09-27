@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Danh Sách Tài Khoản";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+    var q = Session["Quyen"].ToString();
+}
+@model PagedList.IPagedList<QLBANDTDD.Areas.TaiKhoans.Models.TaiKhoanModel>
+@using PagedList.Mvc
+<div id="table">
+    <h2>@ViewBag.Title</h2>
+    <div class="alert alert-info" id="alert-info" style="display:none"></div>
+    <p></p>
+    <table class="table table-bordered" style="text-align:center">
+        <tr>
+            <th style="text-align:center">
+                Tên Tài Khoản
+            </th>
+            <th style="text-align:center">
+                Quyền
+            </th>
+            @if (q.Equals("True"))
+            {
+                <th style="text-align:center">
+                    Thao tác
+                </th>
+            }
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="info">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenTK)
+                </td>
+                <td>
+                    @if (item.Quyen == true)
+                {
+                        <div class="label label-primary label-mini">Quản trị viên</div>
+                    }
+                    else
+                    {
+                        <div class="label label-warning label-mini">Nhân viên</div>
+                    }
+                </td>
+                @if (q.Equals("True"))
+                {
+                    <td>
+                        <a href='javascript:XoaItem("@Url.Action("XoaTaiKhoan", "TaiKhoan")","@item.MaTK")' class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+                    </td>
+                }
+            </tr>
+        }
+
+    </table>
+    <div class="pagination-holder">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 text-left">
+                <div id="nav_grid">
+                    @Html.PagedListPager(Model, page => @Url.Action("Index", "TaiKhoan", new { area = "TaiKhoans", page }))
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="result-counter">
+                    Có tât cả <span>@Model.TotalItemCount</span> tài khoản
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div>

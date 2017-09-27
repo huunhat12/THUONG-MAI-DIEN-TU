@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Nhóm tin tức";
+    Layout = "~/Views/Shared/_LayoutPageNew.cshtml";
+}
+@model PagedList.IPagedList<QLBANDTDD.Models.TinTuc>
+@using PagedList.Mvc;
+<main id="blog" class="inner-bottom-xs">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="posts sidemeta">
+                    @foreach (var item in Model)
+                    {
+                        <div class="post format-image">
+                            @*<div class="date-wrapper">
+                                <div class="date">
+                                    <span class="month">@DateTime.UtcNow</span>
+                                </div>
+                            </div>*@
+                            <div class="format-wrapper">
+                                <i class="fa fa-image"></i>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-media">
+                                    <a href="@item.GetUrl()"><img src="@item.HinhAnh" title="@item.TieuDe"></a>
+                                </div>
+                                <a href="@item.GetUrl()"><h2 class="post-title">@item.TieuDe</h2></a>
+                                <ul class="meta">
+                                    <li>Thể loại: <a href="@item.NhomTinTuc.GetUrl()">@item.NhomTinTuc.TieuDe</a></li>
+                                    <li>@item.NgayDang</li>
+                                </ul><!-- /.meta -->
+                                <p>@item.NoiDungTT</p>
+                                <a href="@item.GetUrl()" class="le-button huge">Read More</a>
+                            </div><!-- /.post-content -->
+                        </div><!-- /.post -->
+                    }
+                </div><!-- /.posts -->
+                <hr />
+                @*<ul class="pagination blog-pagination">
+                        @{
+                            var tieude = ViewBag.path as List<QLBANDTDD.ViewModel.LinkModel>;
+                            if (tieude != null)
+                            {
+                                foreach (var pt in tieude)
+                                {
+                                    <li>@Html.PagedListPager(Model, page => @Url.Action("nhomtintuc", "TinTuc", new { loaitin = pt.TuKhoa, page }))</li>
+                                }
+                            }
+                        }
+                    </ul>*@<!-- /.pagination -->
+                <div class="pagination-holder">
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-6 text-left">
+                            <ul class="pagination ">
+                                @{
+                                    var tieude = ViewBag.path as List<QLBANDTDD.ViewModel.LinkModel>;
+                                    if (tieude != null)
+                                    {
+                                        foreach (var pt in tieude)
+                                        {
+                                            <li class="current">@Html.PagedListPager(Model, page => @Url.Action("nhomtintuc", "TinTuc", new { loaitin = pt.TuKhoa, page }))</li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="result-counter">
+                                Trang <span>@Model.PageNumber</span> của <span>@Model.PageCount</span>
+                            </div>
+                        </div>
+                    </div><!-- /.row -->
+                </div>
+            </div><!-- /.col -->
+            @Html.Partial("_TinTucPartial")
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</main>

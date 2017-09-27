@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageNew.cshtml";
+}
+@model IEnumerable<QLBANDTDD.ViewModel.HoiDapViewModel>
+<main id="faq" class="inner-bottom-md">
+    <div class="container">
+
+        <section class="section">
+            <div class="page-header">
+                <h2 class="page-title">Danh Sách Câu Hỏi</h2>
+            </div>
+            <div id="questions" class="panel-group panel-group-faq">
+            @foreach (var item in Model)
+            {
+                <div class="panel panel-faq">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#questions" class="collapsed" href="#collapseTwo">
+                              @item.TenNguoiHoi :  "@item.TieuDeCH"
+                            </a>
+                        </h4>
+                        <p>@item.NoiDungCH</p>
+                        <p>@item.NgayHoi</p>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            @item.NoiDungTL
+                        </div>
+                    </div>
+                </div><!-- /.panel-faq -->
+            }
+               
+            </div><!-- /.panel-group -->
+        </section><!-- /.section -->
+    </div><!-- /.container -->
+</main>
+

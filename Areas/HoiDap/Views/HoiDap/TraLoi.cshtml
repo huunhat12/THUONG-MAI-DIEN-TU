@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Trả Lời Câu Hỏi";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+    var cauhoi = ViewBag.CauHoi as QLBANDTDD.Models.CauHoi;
+}
+@model QLBANDTDD.Models.TraLoi
+<div>
+    <a href="@Url.Action("Index","HoiDap")" class="le-button">Danh Sách Câu Hỏi</a>
+</div>
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <form>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <label>@cauhoi.TenNguoiHoi: @cauhoi.TieuDe </label>
+                   </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <label>Nội Dung Trả Lời:</label>
+                    @Html.TextAreaFor(m => m.NoiDungTL, new { @class = "form-control", @rows = "10" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <label>Ngày Trả Lời :</label>
+                    @Html.EditorFor(model => model.NgayTraLoi, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-9">
+                    <label>Cho Phép Hiển Thị :</label>
+                    @Html.EditorFor(m => m.HienThi)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5 col-md-offset-7">
+                    <button type="submit" class="btn btn-info"><i class="fa fa-floppy-o"> Lưu trả lời</i> </button>
+                    <button type="button" onclick="window.location = '/hoi-dap'" class="btn btn-default">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </form>
+}
+<script type="text/javascript">
+    CKEDITOR.replace("NoiDungTL");
+</script>
+

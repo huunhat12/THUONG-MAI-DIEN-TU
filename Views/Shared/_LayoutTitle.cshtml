@@ -1,0 +1,61 @@
+﻿@{
+    var layout = new QLBANDTDD.ViewModel.LayoutMenu(Url);
+}
+<div id="breadcrumb-alt">
+    <div class="container">
+        <div class="breadcrumb-nav-holder minimal">
+            <ul>
+                <li class="breadcrumb-item">
+                    <a href="@Url.Action("Index", "Home")">Trang Chủ</a>
+                </li>
+
+                @{
+                    var paths = ViewBag.path as List<QLBANDTDD.ViewModel.LinkModel>;
+                    string p = ViewBag.TuKhoa;
+                    string h = ViewBag.HangSX;
+                    string l = ViewBag.LoaiSP;
+                    if (paths != null)
+                    {
+                        foreach (var pt in paths)
+                        {
+                            if (pt.TuKhoa == p)
+                            {
+                                <li class="breadcrumb-item current">
+                                    <a href="@pt.Link">@pt.Title</a>
+                                </li>
+                            }
+                            if (pt.TuKhoa == l)
+                            {
+
+                                <li class="dropdown breadcrumb-item">
+                                    <a href="@pt.Link" class="dropdown-toggle" data-toggle="dropdown">@pt.Title</a>
+                                    <ul class="dropdown-menu">
+                                        @{
+                                            var menulist = layout.GetMenuList();
+                                        }
+                                        @foreach (var item in menulist)
+                                        {
+                                            foreach (var i in item.hangSX)
+                                            {
+                                                <li>
+                                                    <a href="@i.GetUrl()">@i.TenHang</a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </li>
+                                            }
+                                            if (pt.TuKhoa == h)
+                                            {
+                                                <li class="breadcrumb-item">
+                                                    <a href="@pt.Link">@pt.Title</a>
+                                                </li>
+                                                    }
+                                                }
+                                            }
+                }
+
+            </ul><!-- /.breadcrumb-nav-holder -->
+        </div>
+    </div><!-- /.container -->
+</div>

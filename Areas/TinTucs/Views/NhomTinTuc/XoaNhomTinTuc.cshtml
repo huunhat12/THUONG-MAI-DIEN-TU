@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Xóa Nhóm Tin Tức";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model QLBANDTDD.Models.NhomTinTuc
+<section class="wrapper site-min-height">
+    <div class="row">
+        <h2>@ViewBag.Title</h2>
+        <br />
+        <h3>Bạn chắc chắn muốn xóa nhóm tin tức này hay không ?</h3>
+        @using (Html.BeginForm())
+        {
+
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-1">
+                    <button type="submit" class="btn btn-info">Xóa</button>
+                    <button type="button" onclick="window.location = '/nhom-tin-tuc'" class="btn btn-default">Hủy</button>
+                </div>
+            </div>
+        }
+    </div>
+</section>

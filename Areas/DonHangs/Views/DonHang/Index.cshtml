@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Danh Sách Đơn Hàng";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model PagedList.IPagedList<QLBANDTDD.Models.DonHang>
+@using PagedList.Mvc
+<div id="table">
+    <h2>@ViewBag.Title</h2>
+    <div class="alert alert-info" id="alert-info" style="display:none"></div>
+    <p></p>
+    <table class="table table-bordered" style="text-align:center">
+        <tr>
+            <th style="text-align:center">
+                Tên Khách Hàng
+            </th>
+            <th style="text-align:center">
+                Email
+            </th>
+            <th style="text-align:center">
+                Số Điện Thoại
+            </th>
+            <th style="text-align:center">
+                Ngày Đặt
+            </th>
+            <th style="text-align:center">
+                Địa Chỉ
+            </th>
+            <th style="text-align:center">
+                Tình Trạng
+            </th>
+            <th style="text-align:center">
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="info">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @if (item.TinhTrang == true)
+                {
+                        <div class="label label-primary label-mini">Đã Giao Hàng</div>
+                    }
+                    else
+                    {
+                        <div class="label label-warning label-mini">Chưa Giao Hàng</div>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("Details","DonHang",new {area="DonHangs",id=item.Id })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                    <a href='javascript:XoaItem("@Url.Action("Delete", "DonHang")","@item.Id")' class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="pagination-holder">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 text-left">
+                <div id="nav_grid">
+                    @Html.PagedListPager(Model, page => @Url.Action("Index", "DonHang", new { area = "DonHangs", page }))
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="result-counter">
+                    Có tât cả <span>@Model.TotalItemCount</span> đơn hàng
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div>

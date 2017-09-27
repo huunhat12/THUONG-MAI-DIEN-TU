@@ -1,0 +1,52 @@
+﻿
+@{ 
+    var layout = new QLBANDTDD.ViewModel.LayoutMenu(Url);
+}
+<div class="col-md-3">
+
+    <aside class="sidebar blog-sidebar">
+
+        <div class="widget clearfix">
+            <div class="body">
+                <form role="search" class="search-form">
+                    <div class="form-group">
+                        <label class="sr-only" for="page-search">Type your search here</label>
+                        <input id="page-search" class="search-input form-control" type="search" placeholder="Enter Keywords...">
+                    </div>
+                    <button class="page-search-button">
+                        <span class="fa fa-search">
+                            <span class="sr-only">Search</span>
+                        </span>
+                    </button><!-- /.page-search-button-->
+                </form><!-- /.search-form -->
+            </div>
+        </div><!-- /.widget -->
+        <!-- ========================================= RECENT POST ========================================= -->
+        <div class="widget">
+            <h4>Tin tức mới nhất</h4>
+            <div class="body">
+                <ul class="recent-post-list">
+                @{ 
+                    var tinmoi = layout.Tintucmoinhats();
+                }
+                @foreach (var item in tinmoi)
+                {
+                    <li class="sidebar-recent-post-item">
+                        <div class="media">
+                            <a href="@item.Link" class="thumb-holder pull-left">
+                                <img title="@item.TieuDe" src="~/assets/images/blank.gif" data-echo="@item.Hinh" />
+                            </a>
+                            <div class="media-body">
+                                <h5><a href="@item.Link">@item.TieuDe </a></h5>
+                                <p>@item.NoiDungTT</p>
+                                <div class="posted-date">@item.NgayDang</div>
+                            </div>
+                        </div>
+                    </li>
+                }
+                </ul><!-- /.recent-post-list -->
+            </div><!-- /.body -->
+        </div><!-- /.widget -->
+        <!-- ========================================= RECENT POST : END ========================================= -->
+    </aside><!-- /.sidebar .blog-sidebar -->
+</div>

@@ -1,0 +1,316 @@
+﻿
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_LayoutSanPham.cshtml";
+    var layout = new QLBANDTDD.ViewModel.LayoutMenu(Url);
+}
+@model QLBANDTDD.ViewModel.SanPhamCT
+        <!-- ========================================= SIDEBAR : END ========================================= -->
+        <!-- ========================================= CONTENT ========================================= -->
+        <div class="col-xs-12 col-sm-9 no-margin wide sidebar page-main-content">
+            <div id="single-product" class="row">
+                <div class="no-margin col-xs-12 col-sm-6 col-md-5 gallery-holder">
+                    <div class="product-item-holder size-big single-product-gallery small-gallery">
+                        <div id="owl-single-product">
+                            <div class="single-product-gallery-item" id="slide1">
+                                <img class="img-responsive" title="@Model.sanpham.TenSP" src="~/assets/images/blank.gif" data-echo="@Model.sanpham.HinhAnh" />
+                            </div><!-- /.single-product-gallery-item -->
+                        </div><!-- /.single-product-slider -->
+
+                        <div class="single-product-gallery-thumbs gallery-thumbs">
+                            <div id="owl-single-product-thumbnails">
+                                @foreach (var adim in Model.sanpham.GetImagesCollection())
+                                {
+                                    <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="0" href="@adim.FileName">
+                                        <img width="67" alt="" src="~/assets/images/blank.gif" data-echo="@adim.FileName" />
+                                    </a>
+                                }
+                            </div><!-- /#owl-single-product-thumbnails -->
+                            <div class="nav-holder left hidden-xs">
+                                <a class="prev-btn slider-prev" data-target="#owl-single-product-thumbnails" href="#prev"></a>
+                            </div><!-- /.nav-holder -->
+
+                            <div class="nav-holder right hidden-xs">
+                                <a class="next-btn slider-next" data-target="#owl-single-product-thumbnails" href="#next"></a>
+                            </div><!-- /.nav-holder -->
+                        </div><!-- /.gallery-thumbs -->
+                    </div><!-- /.single-product-gallery -->
+                </div><!-- /.gallery-holder -->
+                <div class="no-margin col-xs-12 col-sm-7 body-holder">
+                    <div class="body">
+                        <div class="availability">
+                            <label>Tình Trạng:</label>
+                            @if (Model.sanpham.SoLuong > 0)
+                            {
+                                <span class="available">Còn hàng</span>
+                            }
+                            else
+                            {
+                                <span class="not-available">Hết hàng</span>
+                            }
+                        </div>
+                        <div class="title"><a href="#">@Model.sanpham.TenSP</a></div>
+                        <div class="brand">@Model.sanpham.HangSanXuat.TenHang</div>
+                        <div class="social-row">
+                            <span class="st_facebook_hcount"></span>
+                            <span class="st_twitter_hcount"></span>
+                            <span class="st_pinterest_hcount"></span>
+                        </div>
+                        <div class="excerpt">
+                            <label>Khuyến mãi:</label>
+                            @if (Model.sanpham.GiaGoc > Model.sanpham.GiaTien)
+                            {
+                                Double? s = ((double)Model.sanpham.GiaTien / Model.sanpham.GiaGoc) * 100;
+                                var q = (Double)s;
+                                <p>Sản phẩm giảm giá @(100 - Math.Round(q, 0))% </p>
+                            }
+                        </div>
+
+                        <div class="prices">
+                            @if (Model.sanpham.GiaGoc == Model.sanpham.GiaTien)
+                            {
+                                <div class="price-current">@string.Format("{0:0,0}", Model.sanpham.GiaTien)  VNĐ</div>
+                            }
+                            else
+                            {
+                                <div class="price-current">@string.Format("{0:0,0}", Model.sanpham.GiaTien)  VNĐ</div>
+                                <div class="price-prev">@string.Format("{0:0,0}", Model.sanpham.GiaGoc)  VNĐ</div>
+                            }
+                        </div>
+                        <div class="qnt-holder">
+                            @*@if (Model.sanpham.SoLuong > 0)
+                            {*@
+                                <div class="le-quantity">
+                                    <form>
+                                        <a class="minus" href="javascript:;"></a>
+                                        <input name="quantity" data-bind="@Model.sanpham.SoLuong" class="sl" readonly="readonly" type="text" value="1" />
+                                        <a class="plus" href="javascript:;"></a>
+                                    </form>
+                                </div>
+                                @*<a id="addto-cart" href="cart.html" class="le-button huge">Cho vào giỏ hàng</a>*@
+                                <a id="addto-cart" href="javascript:;" class="le-button huge" onclick="AddCart(@Model.sanpham.MaSP,0)">Cho vào giỏ hàng</a>
+                            @*}*@
+                        </div><!-- /.qnt-holder -->
+                    </div><!-- /.body -->
+                </div><!-- /.body-holder -->
+            </div><!-- /.row #single-product -->
+            <!-- ========================================= SINGLE PRODUCT TAB ========================================= -->
+            <section id="single-product-tab">
+                <div class="no-container">
+                    <div class="tab-holder">
+
+                        <ul class="nav nav-tabs simple">
+                            <li class="active"><a href="#description" data-toggle="tab">Mô tả</a></li>
+                            <li><a href="#additional-info" data-toggle="tab">Thông Số Kỹ Thuật</a></li>
+                            <li><a href="#reviews" data-toggle="tab">Bình Luận</a></li>
+                        </ul><!-- /.nav-tabs -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="description">
+                                <p>@Html.Raw(Model.sanpham.MoTa)</p>
+                                <div class="meta-row">
+                                    <div class="inline">
+                                        <label>Loại Sản Phẩm:</label>
+                                        <span><a href="#">@Model.sanpham.LoaiSanPham.TenLoai </a></span>
+                                    </div><!-- /.inline -->
+                                    <span class="seperator">/</span>
+                                    <div class="inline">
+                                        <label>Hãng Sản Xuất:</label>
+                                        <span><a href="#">@Model.sanpham.HangSanXuat.TenHang</a></span>
+                                        <span class="seperator">/</span>
+                                        <div class="inline">
+                                            <label>Xuất Xứ :</label>
+                                            <span><a href="#">@Model.sanpham.XuatXu</a></span>
+                                        </div><!-- /.inline -->
+                                </div><!-- /.meta-row -->
+                            </div><!-- /.tab-pane #description -->
+                            </div>
+                            <div class="tab-pane" id="additional-info">
+                                <h2>Thông số kỹ thuật của @Model.sanpham.TenSP</h2>
+                                <br />
+                                @Html.Action("thongsokythuat", "SanPham", new { masp = Model.sanpham.MaSP })
+                                <div class="meta-row">
+                                    <div class="inline">
+                                        <label>Loại Sản Phẩm:</label>
+                                        <span><a href="#">@Model.sanpham.LoaiSanPham.TenLoai </a></span>
+                                    </div><!-- /.inline -->
+                                    <span class="seperator">/</span>
+                                    <div class="inline">
+                                        <label>Hãng Sản Xuất:</label>
+                                        <span><a href="#">@Model.sanpham.HangSanXuat.TenHang</a></span>
+                                    </div><!-- /.inline -->
+                                    <span class="seperator">/</span>
+                                    <div class="inline">
+                                        <label>Xuất Xứ :</label>
+                                        <span><a href="#">@Model.sanpham.XuatXu</a></span>
+                                    </div><!-- /.inline -->
+                                </div><!-- /.meta-row -->
+                            </div><!-- /.tab-pane #additional-info -->
+
+                            <div class="tab-pane" id="reviews">
+                                <a class="fb-comments" data-href="@Request.Url.ToString()" data-numposts="10" ></a>
+                            </div><!-- /.tab-pane #reviews -->
+                        </div><!-- /.tab-content -->
+                    </div><!-- /.tab-holder -->
+                </div><!-- /.container -->
+            </section><!-- /#single-product-tab -->
+            <!-- ========================================= SINGLE PRODUCT TAB : END ========================================= -->
+            <!-- ========================================= RECENTLY VIEWED ========================================= -->
+            <section id="recently-reviewd" class="wow fadeInUp">
+                <div class="no-container">
+                    <div class="carousel-holder hover">
+
+                        <div class="title-nav">
+                            <h2 class="h1">Sản Phẩm Cùng Loại</h2>
+                            <div class="nav-holder">
+                                <a href="#prev" data-target="#owl-recently-viewed-2" class="slider-prev btn-prev fa fa-angle-left"></a>
+                                <a href="#next" data-target="#owl-recently-viewed-2" class="slider-next btn-next fa fa-angle-right"></a>
+                            </div>
+                        </div><!-- /.title-nav -->
+                        <div id="owl-recently-viewed-2" class="owl-carousel product-grid-holder">
+                            @foreach (var tk in Model.sanphamcungloai)
+                            {
+                                Double? s = ((double)tk.GiaTien / tk.GiaGoc) * 100;
+                                var q = (Double)s;
+                                <div class="no-margin carousel-item product-item-holder size-medium hover">
+                                    <div class="product-item">
+                                        @if (tk.IsNew == true)
+                                        {
+                                            <div class="ribbon blue"><span>New</span></div>
+                                        }
+                                        @if (tk.IsHot == true)
+                                        {
+                                            <div class="ribbon red"><span>Hot</span></div>
+                                        }
+                                        @if (tk.GiaGoc > tk.GiaTien)
+                                        {
+                                            <div class="ribbon green"><span>sale</span></div>
+                                        }
+                                        <div class="image">
+                                            <a href="@tk.Link"><img alt="" src="~/assets/images/blank.gif" data-echo="@tk.Hinh" /></a>
+                                           </div>
+                                        <div class="body">
+                                            @if (tk.GiaGoc > tk.GiaTien)
+                                            {
+                                                <div class="label-discount green">-@(100 - Math.Round(q, 0))% sale</div>
+                                            }
+                                            <div class="title">
+                                                <a href="@tk.Link">@tk.TenSP</a>
+                                            </div>
+                                            <div class="brand">@tk.HangSX</div>
+                                        </div>
+                                        <div class="prices">
+                                            @if (tk.GiaTien == tk.GiaGoc)
+                                            {
+                                                <div class="price-current text-right">@string.Format("{0:0,0}", tk.GiaTien) VNĐ</div>
+                                            }
+                                            else
+                                            {
+                                                <div class="price-prev">@string.Format("{0:0,0}", tk.GiaGoc) VNĐ</div>
+                                                <div class="price-current text-right">@string.Format("{0:0,0}", tk.GiaTien) VNĐ</div>
+                                            }
+                                        </div>
+                                        <div class="hover-area">
+                                            @if (tk.SoLuong > 0)
+                                            {
+                                            <div class="add-cart-button">
+                                                <div><a href="javascript:;" class="le-button" onclick="AddCart(@tk.MaSP,1)">Cho vào giỏ hàng</a></div>
+                                            </div>
+                                                }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ========================================= RECENTLY VIEWED : END ========================================= -->
+            @* sản phẩm đã xem *@
+            <section id="recommended-products" class="carousel-holder hover small">
+                <div class="title-nav">
+                    <h2>Sản Phẩm Đã Xem</h2>
+                    <div class="nav-holder">
+                        <a href="#prev" data-target="#owl-recommended-products" class="slider-prev btn-prev fa fa-angle-left"></a>
+                        <a href="#next" data-target="#owl-recommended-products" class="slider-next btn-next fa fa-angle-right"></a>
+                    </div>
+                </div><!-- /.title-nav -->
+                <div id="owl-recommended-products" class="owl-carousel product-grid-holder">
+                    @{
+                        foreach (var item in Model.spdx)
+                        {
+                            Double? s = ((double)item.GiaTien / item.GiaGoc) * 100;
+                            var q = (Double)s;
+                            <div class="no-margin carousel-item product-item-holder hover size-medium">
+                                <div class="product-item">
+                                    @if (item.IsNew == true)
+                                    {
+                                        <div class="ribbon blue"><span>New</span></div>
+                                    }
+                                    @if (item.IsHot == true)
+                                    {
+                                        <div class="ribbon red"><span>Hot</span></div>
+                                    }
+                                    @if (item.GiaGoc > item.GiaTien)
+                                    {
+                                        <div class="ribbon green"><span>sale</span></div>
+                                    }
+                                    <div class="image">
+                                        <a href="@item.GetUrl()"><img alt="" src="~/assets/images/blank.gif" data-echo="@item.HinhAnh" /></a>
+                                    </div>
+                                    <div class="body">
+                                        @if (item.GiaGoc > item.GiaTien)
+                                        {
+                                            <div class="label-discount green">-@(100 - Math.Round(q, 0))% sale</div>
+                                        }
+                                        <div class="title">
+                                            <a href="@item.GetUrl()">@item.TenSP</a>
+                                        </div>
+                                        <div class="brand">@item.HangSanXuat.TenHang</div>
+                                    </div>
+                                    <div class="prices">
+                                        @if (@item.GiaGoc == @item.GiaTien)
+                                        {
+                                            <div class="price-current pull-right">@string.Format("{0:0,0}", item.GiaTien)  VNĐ</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="price-prev">@string.Format("{0:0,0}", item.GiaGoc)  VNĐ</div>
+                                                    <div class="price-current pull-right">@string.Format("{0:0,0}", item.GiaTien)  VNĐ</div>
+                                        }
+                                    </div>
+                                    <div class="hover-area">
+                                        @if (item.SoLuong > 0)
+                                        {
+                                        <div class="add-cart-button">
+                                            <a href="javascript:;" class="le-button" onclick="AddCart(@item.MaSP,1)">Cho vào giỏ hàng</a>
+                                        </div>
+                                            }
+                                    </div>
+                                </div>
+                            </div><!-- /.carousel-item -->
+                        }
+                    }
+                </div><!-- /#recommended-products-carousel .owl-carousel -->
+            </section>
+        </div>
+   
+<script>
+    $(document).ready(function () {
+        $('.product-list').bxSlider();
+    });
+</script>
+<script type="text/javascript">
+    $('.le-quantity a').click(function (e) {
+        e.preventDefault();
+        var currentQty = $(this).parent().parent().find('input').val();
+        var sl=$(this).parent().parent().find('input').data('bind');
+            if ($(this).hasClass('minus') && currentQty > 0) {
+                $(this).parent().parent().find('input').val(parseInt(currentQty, 10));
+            } else {
+                if ($(this).hasClass('plus') ) {
+                    $(this).parent().parent().find('input').val(parseInt(currentQty, 10));
+                }
+            
+            }
+    });
+</script>

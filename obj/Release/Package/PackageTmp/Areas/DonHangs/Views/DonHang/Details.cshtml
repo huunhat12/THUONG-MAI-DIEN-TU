@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Chi Tiết Đơn Hàng";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model QLBANDTDD.Models.DonHang
+<div id="table">
+    <div class="alert alert-info" id="alert-info" style="display:none"></div>
+    <p></p>
+            <h2>Thông tin khách hàng</h2>
+        <table class="table table-bordered" style="text-align:center">
+            <tr>
+                <th>Tên Khách Hàng</th>
+                <th>Email</th>
+                <th>Số Điện Thoại</th>
+                <th>Ngày Đặt</th>
+                <th>Địa Chỉ</th>
+                <th>Tình Trạng</th>
+            </tr>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.TenKH)</td>
+                <td>@Html.DisplayFor(model => model.Email)</td>
+                <td>@Html.DisplayFor(model => model.SDT)</td>
+                <td>@Html.DisplayFor(model => model.NgayDat)</td>
+                <td>@Html.DisplayFor(model => model.DiaChi)</td>
+                <td>
+                    @if (Model.TinhTrang == true)
+                    {
+                        <div class="label label-primary label-mini">Đã Giao Hàng</div>
+                    }
+                    else
+                    {
+                        <div class="label label-warning label-mini">Chưa Giao Hàng</div>
+                    }
+                </td>
+            </tr>
+        </table>
+        <h2>Chi Tiết Đơn Hàng</h2>
+        <table class="table table-bordered">
+                <tr>
+                    <th>Sản Phẩm</th>
+                    <th>Đơn Giá</th>
+                    <th>Số Lượng</th>
+                    <th>Thành Tiền</th>
+                </tr>
+                @{
+                    var Total = Model.ChiTietDonHang.Sum(m => m.SanPham.GiaTien * m.SoLuong);
+                }
+                @foreach (var item in Model.ChiTietDonHang)
+            {
+                var SubTotal = item.SoLuong * item.SanPham.GiaTien;
+                    <tr>
+                        <td>@item.SanPham.TenSP</td>
+                        <td>@string.Format("{0:0,0 VNĐ}", item.SanPham.GiaTien).Replace(",", ".")</td>
+                        <td>@item.SoLuong</td>
+                        <td>@string.Format("{0:0,0 VNĐ}", SubTotal).Replace(",", ".")</td>
+                    </tr>
+                }
+        </table>
+        <div class="col-lg-offset-8 col-lg-4">
+            <h4>Tổng Tiền :  @string.Format("{0:0,0 VNĐ}", @Total).Replace(",", ".")</h4>
+        </div>
+    </div>
+<div class="col-lg-offset-8 col-lg-4">
+    <a href="@Url.Action("Delivery","DonHang",new {area="DonHangs",id=Model.Id})" class="btn btn-primary"><i class="fa fa-truck"> Giao hàng</i></a>
+    <a onclick="window.location = '/don-hang'" class="btn btn-warning"><i class="fa fa-hand-o-left "> Quay lại</i></a>
+</div>

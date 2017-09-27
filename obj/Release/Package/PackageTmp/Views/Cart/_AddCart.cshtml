@@ -1,0 +1,70 @@
+﻿
+@*@model List<QLBANDTDD.ViewModel.CartItem>*@
+@{ 
+    var Cart = Session["CartSession"] as List<QLBANDTDD.ViewModel.CartItem>;
+    var total = Session["Total"];
+}
+@if (Cart != null)
+{
+               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <div class="basket-item-count">
+                        <span class="count">@Cart.Count()</span>
+                        <img src="~/assets/images/icon-cart.png" alt="" />
+                    </div>
+                    <div class="total-price-basket">
+                        <span class="lbl">Giỏ hàng:</span>
+                        <span class="total-price">
+                            <span class="value">@string.Format("{0:0,0}",total) </span><span class="sign">VNĐ</span>
+                        </span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach (var item in Cart)
+                    {
+                        <li>
+                            <div class="basket-item">
+                                <div class="row">
+                                    <div class="col-xs-4 col-sm-4 no-margin text-center">
+                                        <div class="thumb">
+                                            <img title="@item.sanpham.TenSP" src="@item.sanpham.HinhAnh" />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 no-margin">
+                                        <div class="title"><a href="@item.sanpham.GetUrl()">@item.sanpham.TenSP</a></div>
+                                        <div class="price">@string.Format("{0:0,0}", @item.sanpham.GiaTien) VNĐ</div>
+                                        <div class="title">Số lượng : @item.Quantity</div>
+                                    </div>
+                                </div>
+                                <a class="close-btn" href="javascript:;" onclick="deletecart(@item.sanpham.MaSP)"></a>
+                            </div>
+                        </li>
+                    }
+                    <li class="checkout">
+                        <div class="basket-item">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <a href="@Url.Action("Giohang","Cart")" class="le-button inverse">Xem</a>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <a href="checkout.html" class="le-button">Mua hàng</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+}
+else
+{
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <div class="basket-item-count">
+                            <span class="count">0</span>
+                            <img src="~/assets/images/icon-cart.png" alt="" />
+                        </div>
+                        <div class="total-price-basket">
+                            <span class="lbl">Giỏ hàng:</span>
+                            <span class="total-price">
+                                <span class="value">@string.Format("{0:0,0}", "0")</span><span class="sign"> VNĐ</span>
+                            </span>
+                        </div>
+                    </a>
+}

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Thêm Mới Tài Khoản";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model QLBANDTDD.Areas.TaiKhoans.Models.TaiKhoanModel
+<div>
+    <a href="@Url.Action("Index","TaiKhoan")" class="le-button">Danh Sách Tài Khoản</a>
+</div>
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" });
+    <form>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Tên Tài Khoản :</label>
+                    @Html.EditorFor(model => model.TenTK, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenTK, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Mật Khẩu :</label>
+                    @Html.PasswordFor(model => model.MatKhau, new { @class = "form-control"})
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Là Quản Trị :</label>
+                    @Html.EditorFor(model => model.Quyen)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-3 col-lg-9">
+                    <button type="submit" class="btn btn-info">Thêm </button>
+                    <button type="button" onclick="window.location = '/tai-khoan'" class="btn btn-default">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </form>
+}

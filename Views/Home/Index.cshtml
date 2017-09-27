@@ -1,0 +1,391 @@
+﻿@{
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model QLBANDTDD.ViewModel.IndexViewModel
+<script src="~/Scripts/Loadmore.js"></script>
+<div id="products-tab" class="wow fadeInUp">
+    <div class="container">
+        <div class="tab-holder">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#featured" data-toggle="tab">Sản phẩm mới nhất</a></li>
+                <li><a href="#new-arrivals" data-toggle="tab">Sản phẩm Hot</a></li>
+                <li><a href="#top-sales" data-toggle="tab">Sản phẩm giảm giá</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content" >
+                <div class="tab-pane active" id="featured">
+                  <div class="product-grid-holder" >
+                            @{
+
+                                foreach (var spmoi in Model.sanPhamMoiNhats)
+                                {
+                                    Double? s = spmoi.Phantram;
+                                    var q = (Double)s;
+                                <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
+                                    <div id="spnoibat">
+                                        <div class="product-item">
+                                            @if (spmoi.IsNew == true)
+                                            {
+                                                <div class="ribbon blue"><span>New</span></div>
+                                            }
+                                            @if (spmoi.IsHot == true)
+                                            {
+                                                <div class="ribbon red"><span>Hot</span></div>
+                                            }
+                                            @if (spmoi.GiaGoc > spmoi.GiaTien)
+                                            {
+                                                <div class="ribbon green"><span>sale</span></div>
+                                            }
+                                            <div class="image">
+                                                <a href="@spmoi.Link"><img title="@spmoi.TenSP" src="~/assets/images/blank.gif" data-echo="@spmoi.Hinh" /></a>
+                                            </div>
+                                            <div class="body">
+                                                @if (spmoi.GiaGoc > spmoi.GiaTien)
+                                                {
+                                                <div class="label-discount green">-@(100 - Math.Round(q, 0))% sale</div>
+                                                }
+                                                <div class="title">
+                                                    <a href="@spmoi.Link">@spmoi.TenSP</a>
+                                                </div>
+                                                <div class="brand">@spmoi.HangSX</div>
+                                            </div>
+                                            <div class="prices">
+                                                @if (@spmoi.GiaGoc == @spmoi.GiaTien)
+                                                {
+                                                <div class="price-current pull-right">@string.Format("{0:0,0}", spmoi.GiaTien)  VNĐ</div>
+                                                }
+                                                else
+                                                {
+                                                <div class="price-prev">@string.Format("{0:0,0}", spmoi.GiaGoc)  VNĐ</div>
+                                                <div class="price-current pull-right">@string.Format("{0:0,0}", spmoi.GiaTien)  VNĐ</div>
+                                                }
+                                            </div>
+                                            <div class="hover-area">
+                                                <div class="add-cart-button">
+                                                    <a href="javascript:;" class="le-button" onclick="AddCart(@spmoi.MaSP,1)">Cho vào giỏ hàng</a>
+                                                </div>
+                                                @*<div class="wish-compare">
+                        <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
+                        <a class="btn-add-to-compare" href="#">compare</a>
+                    </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                        }
+                                @*<div class="loadmore-holder text-center">
+                                    <div id="sphotlink">
+                                        <a class="btn-loadmore" href='javascript:LoadMorePro(2,"Index","#sphotlink","#spnoibat")'>
+                                            <i class="fa fa-plus"></i>
+                                            Tải thêm
+                                        </a>
+                                    </div>
+                                </div>*@
+                            </div>
+                    </div>
+                <div class="tab-pane" id="new-arrivals">
+                    <div class="product-grid-holder">
+                        @{
+
+                            foreach (var sphot in Model.sanPhamHots)
+                            {
+                                Double? s = sphot.Phantram;
+                                var q = (Double)s;
+                            <div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+                            <div class="product-item">
+                                @if (sphot.IsNew == true)
+                                {
+                                    <div class="ribbon blue"><span>New</span></div>
+                                }
+                                @if (sphot.IsHot == true)
+                                {
+                                    <div class="ribbon red"><span>Hot</span></div>
+                                }
+                                @if (sphot.GiaGoc > sphot.GiaTien)
+                                {
+                                    <div class="ribbon green"><span>sale</span></div>
+                                }
+                                <div class="image">
+                                    <a href="@sphot.Link"><img title="@sphot.TenSP" src="assets/images/blank.gif" data-echo="@sphot.Hinh" /></a>
+                                </div>
+                                <div class="body">
+                                    @if (sphot.GiaGoc > sphot.GiaTien)
+                                    {
+                                        <div class="label-discount green">-@(100 - Math.Round(q, 0))% sale</div>
+                                    }
+                                    <div class="title">
+                                        <a href="@sphot.Link">@sphot.TenSP</a>
+                                    </div>
+                                    <div class="brand">@sphot.HangSX</div>
+                                </div>
+                                <div class="prices">
+                                    @if (sphot.GiaGoc == sphot.GiaTien)
+                                    {
+                                        <div class="price-current pull-right">@string.Format("{0:0,0}", sphot.GiaTien)  VNĐ</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="price-prev">@string.Format("{0:0,0}", sphot.GiaGoc)  VNĐ</div>
+                                                <div class="price-current pull-right">@string.Format("{0:0,0}", sphot.GiaTien)  VNĐ</div>
+                                    }
+                                </div>
+                                <div class="hover-area">
+                                    <div class="add-cart-button">
+                                        <a href="javascript:;" class="le-button" onclick="AddCart(@sphot.MaSP,1)">Cho vào giỏ hàng</a>
+                                    </div>
+                                    @*<div class="wish-compare">
+                                        <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
+                                        <a class="btn-add-to-compare" href="#">compare</a>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                            }
+    }
+                 </div>    
+             </div>
+                <div class="tab-pane" id="top-sales">
+                    <div class="product-grid-holder">
+                        <div id="spmoiload">
+                            @{
+
+                                foreach (var spgiam in Model.sanPhamGiamGias)
+                                {
+                                    Double? s = spgiam.Phantram;
+                                    var q = (Double)s;
+                                    <div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+                                        <div class="product-item">
+                                            @if (spgiam.IsNew == true)
+                                            {
+                                                <div class="ribbon blue"><span>New</span></div>
+                                            }
+                                            @if (spgiam.IsHot == true)
+                                            {
+                                                <div class="ribbon red"><span>Hot</span></div>
+                                            }
+                                            @if (spgiam.GiaGoc > spgiam.GiaTien)
+                                            {
+                                                <div class="ribbon green"><span>Sale</span></div>
+                                            }
+                                            
+                                            <div class="image">
+                                                <a href="@spgiam.Link"><img title="@spgiam.TenSP" src="assets/images/blank.gif" data-echo="@spgiam.Hinh" /></a>
+                                            </div>
+                                            <div class="body">
+                                                @if (spgiam.GiaGoc > spgiam.GiaTien)
+                                                {
+                                                    <div class="label-discount green">-@(100 - Math.Round(q, 0))% sale</div>
+                                                }
+                                                <div class="title">
+                                                    <a href="@spgiam.Link">
+                                                        @spgiam.TenSP
+                                                    </a>
+                                                </div>
+                                                <div class="brand">@spgiam.HangSX</div>
+                                            </div>
+                                            <div class="prices">
+                                                @if (spgiam.GiaGoc == spgiam.GiaTien)
+                                                {
+                                                    <div class="price-current pull-right">@string.Format("{0:0,0}", spgiam.GiaTien) VNĐ</div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="price-prev">@string.Format("{0:0,0}", spgiam.GiaGoc) VNĐ</div>
+                                                    <div class="price-current pull-right">@string.Format("{0:0,0}", spgiam.GiaTien) VNĐ</div>
+                                                }
+                                            </div>
+                                            <div class="hover-area">
+                                                <div class="add-cart-button">
+                                                    <a href="javascript:;" class="le-button" onclick="AddCart(@spgiam.MaSP,1)">Cho vào giỏ hàng</a>
+                                                </div>
+                                                @*<div class="wish-compare">
+                                    <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
+                                    <a class="btn-add-to-compare" href="#">compare</a>
+                                </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    @*<div class="loadmore-holder text-center">
+                        <div id="spmoilink">
+                            <a class="btn-loadmore" href='javascript:LoadMorePro(4,"Index","#spmoilink","#spmoiload")'>
+                                <i class="fa fa-plus"></i>
+                                Tải thêm
+                            </a>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ========================================= BEST SELLERS ========================================= -->
+<section id="bestsellers" class="color-bg wow fadeInUp">
+    <div class="container">
+        <h1 class="section-title">Sản phẩm bán chạy</h1>
+        <div class="product-grid-holder medium">
+            <div class="col-xs-12 col-md-12 no-margin">
+
+                <div class="row no-margin">
+                @foreach (var itembc in Model.sanPhamBanChays)
+                {
+                    Double? s = itembc.Phantram;
+                    var q = (Double)s;
+                    <div class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover">
+                        <div class="product-item">
+                            <div class="ribbon green"><span>Bán chạy</span></div>
+                            <div class="image">
+                                <a href="@itembc.Link"><img title="@itembc.TenSP" src="~/assets/images/blank.gif" data-echo="@itembc.Hinh" /></a>
+                            </div>
+                            <div class="body">
+                                @if (itembc.GiaGoc > itembc.GiaTien)
+                                {
+                                    <div class="label-discount green">-@(100 - Math.Round(q, 0))% sale</div>
+                                }
+                                <div class="title">
+                                    <a href="@itembc.Link">@itembc.TenSP</a>
+                                </div>
+                                <div class="brand">@itembc.HangSX</div>
+                            </div>
+                            <div class="prices">
+                               @if (itembc.GiaGoc == itembc.GiaTien)
+                               {
+                                <div class="price-current pull-right">@string.Format("{0:0,0}", itembc.GiaTien) VNĐ</div>
+                               }
+                               else
+                               {
+                                <div class="price-prev">@string.Format("{0:0,0}", itembc.GiaGoc) VNĐ</div>
+                                                    <div class="price-current pull-right">@string.Format("{0:0,0}", itembc.GiaTien) VNĐ</div>
+                               }
+                            </div>
+                            <div class="hover-area">
+                                <div class="add-cart-button">
+                                    <a href="javascript:;" class="le-button" onclick="AddCart(@itembc.MaSP,1)">Cho vào giỏ hàng</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                    <!-- /.product-item-holder -->
+                </div><!-- /.row -->
+            </div><!-- /.col -->
+            @*<div class="col-xs-12 col-md-5 no-margin">
+                <div class="product-item-holder size-big single-product-gallery small-gallery">
+
+                    <div id="best-seller-single-product-slider" class="single-product-slider owl-carousel">
+                        <div class="single-product-gallery-item" id="slide1">
+                            <a data-rel="prettyphoto" href="images/products/product-gallery-01.jpg">
+                                <img alt="" src="~/assets/images/blank.gif" data-echo="~/assets/images/products/product-gallery-01.jpg" />
+                            </a>
+                        </div><!-- /.single-product-gallery-item -->
+                        <div class="single-product-gallery-item" id="slide2">
+                            <a data-rel="prettyphoto" href="images/products/product-gallery-01.jpg">
+                                <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-gallery-01.jpg" />
+                            </a>
+                        </div><!-- /.single-product-gallery-item -->
+                        <div class="single-product-gallery-item" id="slide3">
+                            <a data-rel="prettyphoto" href="images/products/product-gallery-01.jpg">
+                                <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-gallery-01.jpg" />
+                            </a>
+                        </div><!-- /.single-product-gallery-item -->
+                    </div><!-- /.single-product-slider -->
+                    <div class="gallery-thumbs clearfix">
+                        <ul>
+                            <li><a class="horizontal-thumb active" data-target="#best-seller-single-product-slider" data-slide="0" href="#slide1"><img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/gallery-thumb-01.jpg" /></a></li>
+                            <li><a class="horizontal-thumb" data-target="#best-seller-single-product-slider" data-slide="1" href="#slide2"><img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/gallery-thumb-01.jpg" /></a></li>
+                            <li><a class="horizontal-thumb" data-target="#best-seller-single-product-slider" data-slide="2" href="#slide3"><img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/gallery-thumb-01.jpg" /></a></li>
+                        </ul>
+                    </div><!-- /.gallery-thumbs -->
+                    <div class="body">
+                        <div class="label-discount clear"></div>
+                        <div class="title">
+                            <a href="single-product.html">CPU intel core i5-4670k 3.4GHz BOX B82-12-122-41</a>
+                        </div>
+                        <div class="brand">sony</div>
+                    </div>
+                    <div class="prices text-right">
+                        <div class="price-current inline">$1199.00</div>
+                        <a href="cart.html" class="le-button big inline">add to cart</a>
+                    </div>
+                </div><!-- /.product-item-holder -->
+            </div>*@<!-- /.col -->
+        </div><!-- /.product-grid-holder -->
+    </div><!-- /.container -->
+</section><!-- /#bestsellers -->
+<!-- ========================================= BEST SELLERS : END ========================================= -->
+<!-- ========================================= RECENTLY VIEWED ========================================= -->
+@*<section id="recently-reviewd" class="wow fadeInUp">
+    <div class="container">
+        <div class="carousel-holder hover">
+
+            <div class="title-nav">
+                <h2 class="h1">Sản Phẩm Vừa Xem</h2>
+                <div class="nav-holder">
+                    <a href="#prev" data-target="#owl-recently-viewed" class="slider-prev btn-prev fa fa-angle-left"></a>
+                    <a href="#next" data-target="#owl-recently-viewed" class="slider-next btn-next fa fa-angle-right"></a>
+                </div>
+            </div><!-- /.title-nav -->
+            <div id="owl-recently-viewed" class="owl-carousel product-grid-holder">
+                @{
+                    foreach (var item in Model.spdx)
+                    {
+                        Double? s = ((double)item.GiaTien / item.GiaGoc) * 100;
+                        var q = (Double)s;
+                        <div class="no-margin carousel-item product-item-holder hover size-medium">
+                            <div class="product-item">
+                                @if (item.IsNew == true)
+                                {
+                                    <div class="ribbon blue"><span>New</span></div>
+                                }
+                                @if (item.IsHot == true)
+                                {
+                                    <div class="ribbon red"><span>Hot</span></div>
+                                }
+                                @if (item.GiaGoc > item.GiaTien)
+                                {
+                                    <div class="ribbon green"><span>sale</span></div>
+                                }
+                                <div class="image">
+                                    <img alt="@item.GetUrl()" src="~/assets/images/blank.gif" data-echo="@item.HinhAnh" />
+                                </div>
+                                <div class="body">
+                                    @if (item.GiaGoc > item.GiaTien)
+                                    {
+                                        <div class="label-discount green">-@(100 - Math.Round(q, 0))% sale</div>
+                                    }
+                                    <div class="title">
+                                        <a href="@item.GetUrl()">@item.TenSP</a>
+                                    </div>
+                                    <div class="brand">@item.HangSanXuat.TenHang</div>
+                                </div>
+                                <div class="prices">
+                                    @if (@item.GiaGoc == @item.GiaTien)
+                                    {
+                                        <div class="price-current pull-right">@string.Format("{0:0,0}", item.GiaTien)  VNĐ</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="price-prev">@string.Format("{0:0,0}", item.GiaGoc)  VNĐ</div>
+                                            <div class="price-current pull-right">@string.Format("{0:0,0}", item.GiaTien)  VNĐ</div>
+                                    }
+                                </div>
+                                <div class="hover-area">
+                                    <div class="add-cart-button">
+                                        <a href="single-product.html" class="le-button">Cho vào giỏ hàng</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.carousel-item -->
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>*@
+<!-- ========================================= RECENTLY VIEWED : END ========================================= -->
+</div>

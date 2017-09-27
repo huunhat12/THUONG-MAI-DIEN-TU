@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Danh Sách Hỏi Đáp";
+    Layout = "~/Areas/LoginAdmin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model PagedList.IPagedList<QLBANDTDD.Models.CauHoi>
+@using PagedList.Mvc
+<div id="table">
+    <h2>@ViewBag.Title</h2>
+    <div class="alert alert-info" id="alert-info" style="display:none"></div>
+    <p></p>
+    <table class="table table-bordered" style="text-align:center">
+        <tr>
+            <th style="text-align:center">
+                Họ Tên
+            </th>
+            <th style="text-align:center">
+                Số Điện Thoại
+            </th>
+            <th style="text-align:center">
+                Tiêu Đề
+            </th>
+            <th style="text-align:center">
+                Nội Dung
+            </th>
+            <th style="text-align:center">
+                Ngày Hỏi
+            </th>
+            <th style="text-align:center">
+                Hiển Thị
+            </th>
+            <th style="text-align:center">
+                Trả Lời
+            </th>
+            <th style="text-align:center">
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="info">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNguoiHoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TieuDe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoiDung)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayHoi)
+                </td>
+                <td>
+                    @if (item.HienThi == true)
+                    {
+                        <div class="label label-primary label-mini">Có</div>
+                    }
+                    else
+                    {
+                        <div class="label label-warning label-mini">Không</div>
+                    }
+                </td>
+                <td>
+                    @if (item.TraLoi.Count() <= 0)
+                {
+                        @*<div class="label label-success label-mini">@Html.ActionLink("Trả lời", "TraLoi", new { id = item.Id })</div>*@
+                        <a href="@Url.Action("TraLoi", "HoiDap", new { id = item.Id })" class="label label-success label-mini">Trả lời</a>
+                    }
+                    else
+                    {
+                        @*<div class="label label-primary label-mini">@Html.ActionLink("Cập nhật trả lời", "CapNhatTraLoi", new { id = item.Id })</div>*@
+                        <a href="@Url.Action("CapNhatTraLoi", "HoiDap", new { id = item.Id })" class="label label-primary label-mini">Cập nhật trả lời</a>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit","HoiDap",new {area="HoiDap",id=item.Id })" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                    <a href='javascript:XoaItem("@Url.Action("Delete", "HoiDap")","@item.Id")' class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="pagination-holder">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 text-left">
+                <div id="nav_grid">
+                    @Html.PagedListPager(Model, page => @Url.Action("Index", "HoiDap", new { area = "HoiDap", page }))
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="result-counter">
+                    Có tât cả <span>@Model.TotalItemCount</span> câu hỏi
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div>
+
+
+
+
+
+
